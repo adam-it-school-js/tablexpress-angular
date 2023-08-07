@@ -8,41 +8,68 @@
 
     <h1>Login</h1>
 
-    <form (submit)="userRegisterSubmit()">
+    <form [formGroup]="loginForm" (submit)="userLoginSubmit()">
       <div class="text-box w-full flex justify-between md:flex-row flex-col">
-        <label for="phone_number">Phone&#160;number</label>
+        <label for="phone">Phone&#160;number</label>
         <input
+          [class.validation-error]="isInvalidInput('phone')"
+          formControlName="phone"
           class="w-[342px] sm:w-full"
           type="text"
-          name=""
-          id="phone_number"
+          id="phone"
+          name="phone"
         />
+      </div>
+
+      <div
+        *ngIf="isInvalidInput('phone')"
+        class="error-message w-full mb-5 mt-[-10px]"
+      >
+        <div class="custom-alert" role="alert">
+          <span class="font-medium">Error!</span> <br />
+          Phone number is required and should be valid..
+        </div>
       </div>
 
       <div class="text-box w-full flex justify-between md:flex-row flex-col">
         <label for="password">Password</label>
         <input
+          [class.validation-error]="isInvalidInput('password')"
+          formControlName="password"
           class="w-[342px] sm:w-full"
           type="password"
-          name=""
+          name="password"
           id="password"
         />
+      </div>
+
+      <div
+        *ngIf="isInvalidInput('password')"
+        class="error-message w-full mb-5 mt-[-10px]"
+      >
+        <div class="custom-alert" role="alert">
+          <span class="font-medium">Error!</span> <br />
+          Password is required.
+        </div>
       </div>
 
       <div class="w-full flex justify-between items-center">
         <span class="text-transparent pointer-events-none hidden md:block"
           >.</span
         >
-
         <div class="checkbox-box flex">
-          <input type="checkbox" name="" id="remember_me" />
-          <label class="ml-1" for="remember_me">Remember me</label>
+          <input
+            formControlName="rememberUser"
+            type="checkbox"
+            name="rememberUser"
+            id="rememberUser"
+          />
+          <label class="ml-1" for="rememberUser">Remember me</label>
         </div>
-
         <a href="">Forgot password?</a>
       </div>
 
-      <div class="w-full flex justify-center mt-4 sm:mt-10">
+      <div class="w-full flex justify-center my-5 sm:mt-10">
         <button class="primory-button" type="submit">Login</button>
       </div>
     </form>

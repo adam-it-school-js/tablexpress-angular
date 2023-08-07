@@ -38,6 +38,11 @@
         border-radius: 20px;
         border: 1px solid #bcbcbc;
         background: #fff;
+        padding-left: 10px;
+
+        &.validation-error {
+          border: 2px solid red;
+        }
       }
     }
 
@@ -55,6 +60,8 @@
     }
   }
 }
+
+// UI STYLES
 
 .primory-button {
   border-radius: 50px;
@@ -77,5 +84,18 @@
   transition: 0.3s;
   &:hover {
     background: var(--color-purple-800, rgb(107 33 168));
+  }
+}
+
+.custom-alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  color: #dc2626; /* text-red-800 */
+  background-color: #fee2e2; /* bg-red-50 */
+  border-radius: 0.375rem; /* rounded-lg */
+
+  span {
+    font-weight: 500; /* font-medium */
   }
 }
