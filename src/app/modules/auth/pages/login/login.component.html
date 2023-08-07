@@ -8,7 +8,7 @@
 
     <h1>Login</h1>
 
-    <form action="">
+    <form (submit)="userRegisterSubmit()">
       <div class="text-box w-full flex justify-between md:flex-row flex-col">
         <label for="phone_number">Phone&#160;number</label>
         <input
@@ -36,10 +36,14 @@
 
         <div class="checkbox-box flex">
           <input type="checkbox" name="" id="remember_me" />
-          <label for="remember_me">Remember me</label>
+          <label class="ml-1" for="remember_me">Remember me</label>
         </div>
 
         <a href="">Forgot password?</a>
+      </div>
+
+      <div class="w-full flex justify-center mt-4 sm:mt-10">
+        <button class="primory-button" type="submit">Login</button>
       </div>
     </form>
   </div>
