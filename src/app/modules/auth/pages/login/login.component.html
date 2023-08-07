@@ -1,7 +1,46 @@
 <div id="login-page" class="w-screen h-screen flex items-center justify-center">
-    <div class="login-box">
-        <img src="assets/images/login-logo.png" alt="BBQ logo">
+  <div class="login-box w-full sm:w-[508px] mx-2 px-1 sm:px-8 pb-1 sm:pb-10">
+    <img
+      class="h-auto md:h-[211px]"
+      src="assets/images/login-logo.png"
+      alt="BBQ logo"
+    />
 
-        <h1>Login</h1>
-    </div>
+    <h1>Login</h1>
+
+    <form action="">
+      <div class="text-box w-full flex justify-between md:flex-row flex-col">
+        <label for="phone_number">Phone&#160;number</label>
+        <input
+          class="w-[342px] sm:w-full"
+          type="text"
+          name=""
+          id="phone_number"
+        />
+      </div>
+
+      <div class="text-box w-full flex justify-between md:flex-row flex-col">
+        <label for="password">Password</label>
+        <input
+          class="w-[342px] sm:w-full"
+          type="password"
+          name=""
+          id="password"
+        />
+      </div>
+
+      <div class="w-full flex justify-between items-center">
+        <span class="text-transparent pointer-events-none hidden md:block"
+          >.</span
+        >
+
+        <div class="checkbox-box flex">
+          <input type="checkbox" name="" id="remember_me" />
+          <label for="remember_me">Remember me</label>
+        </div>
+
+        <a href="">Forgot password?</a>
+      </div>
+    </form>
+  </div>
 </div>
