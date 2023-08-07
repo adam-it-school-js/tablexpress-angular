@@ -8,7 +8,7 @@ export class CheckFormService {
   constructor() {}
 
   static CheckPhoneNumber(control: AbstractControl): ValidationErrors | null {
-    // phone number is 10 length
+    // phone number length is 10
     const phoneNumberPattern = /^\d{10}$/;
 
     if (!control.value || !phoneNumberPattern.test(control.value)) {

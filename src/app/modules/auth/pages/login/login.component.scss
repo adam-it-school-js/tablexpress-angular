@@ -59,6 +59,17 @@
       text-decoration-line: underline;
     }
   }
+
+  .copyright {
+    position: absolute;
+    bottom: 26px;
+
+    color: var(--color-purple-900, #0a376e);
+    text-align: center;
+    font-family: Alegreya;
+    font-size: 25px;
+    font-weight: 700;
+  }
 }
 
 // UI STYLES

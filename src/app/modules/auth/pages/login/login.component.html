@@ -1,62 +1,52 @@
+<!-- Login Page Container -->
 <div id="login-page" class="w-screen h-screen flex items-center justify-center">
+  <!-- Login Box -->
   <div class="login-box w-full sm:w-[508px] mx-2 px-1 sm:px-8 pb-1 sm:pb-10">
+    <!-- Logo -->
     <img
       class="h-auto md:h-[211px]"
       src="assets/images/login-logo.png"
       alt="BBQ logo"
     />
 
+    <!-- Title -->
     <h1>Login</h1>
 
+    <!-- Login Form -->
     <form [formGroup]="loginForm" (submit)="userLoginSubmit()">
-      <div class="text-box w-full flex justify-between md:flex-row flex-col">
-        <label for="phone">Phone&#160;number</label>
-        <input
-          [class.validation-error]="isInvalidInput('phone')"
-          formControlName="phone"
-          class="w-[342px] sm:w-full"
-          type="text"
-          id="phone"
-          name="phone"
-        />
-      </div>
-
-      <div
-        *ngIf="isInvalidInput('phone')"
-        class="error-message w-full mb-5 mt-[-10px]"
-      >
-        <div class="custom-alert" role="alert">
-          <span class="font-medium">Error!</span> <br />
-          Phone number is required and should be valid..
+      <!-- Dynamic Form Fields using ngFor -->
+      <ng-container *ngFor="let field of formFields">
+        <div class="text-box w-full flex justify-between md:flex-row flex-col">
+          <!-- Label for Input -->
+          <label for="{{ field.name }}" [innerHTML]="field.label"></label>
+          <!-- Input Field with Validation and Error Display -->
+          <input
+            [class.validation-error]="isInvalidInput(field.name)"
+            formControlName="{{ field.name }}"
+            class="w-[342px] sm:w-full"
+            type="{{ field.type }}"
+            id="{{ field.name }}"
+            name="{{ field.name }}"
+          />
         </div>
-      </div>
-
-      <div class="text-box w-full flex justify-between md:flex-row flex-col">
-        <label for="password">Password</label>
-        <input
-          [class.validation-error]="isInvalidInput('password')"
-          formControlName="password"
-          class="w-[342px] sm:w-full"
-          type="password"
-          name="password"
-          id="password"
-        />
-      </div>
-
-      <div
-        *ngIf="isInvalidInput('password')"
-        class="error-message w-full mb-5 mt-[-10px]"
-      >
-        <div class="custom-alert" role="alert">
-          <span class="font-medium">Error!</span> <br />
-          Password is required.
+        <!-- Error Message Display -->
+        <div
+          *ngIf="isInvalidInput(field.name)"
+          class="error-message w-full mb-5 mt-[-10px]"
+        >
+          <div class="custom-alert" role="alert">
+            <span class="font-medium">Error!</span> <br />
+            {{ field.error }}
+          </div>
         </div>
-      </div>
+      </ng-container>
 
+      <!-- Remember Me and Forgot Password Section -->
       <div class="w-full flex justify-between items-center">
         <span class="text-transparent pointer-events-none hidden md:block"
           >.</span
         >
+        <!-- Checkbox and Label -->
         <div class="checkbox-box flex">
           <input
             formControlName="rememberUser"
@@ -66,12 +56,19 @@
           />
           <label class="ml-1" for="rememberUser">Remember me</label>
         </div>
+
+        <!-- Forgot Password Link -->
         <a href="">Forgot password?</a>
       </div>
 
+      <!-- Submit Button -->
       <div class="w-full flex justify-center my-5 sm:mt-10">
         <button class="primory-button" type="submit">Login</button>
       </div>
     </form>
+  </div>
+
+  <div class="copyright">
+    Copyright © 2021 AN BBQ Themes
   </div>
 </div>

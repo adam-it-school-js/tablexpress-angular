@@ -2,18 +2,30 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CheckFormService } from "src/app/core/services/check-form.service";
 
-FormBuilder;
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent {
-  // phone!: string;
-  // password!: string;
-  // rememberUser: Boolean = false;
-
+  // Declare the loginForm FormGroup
   loginForm!: FormGroup;
+
+  // Define formFields array with input field details
+  formFields = [
+    {
+      name: "phone",
+      label: "Phone&nbspnumber",
+      type: "text",
+      error: "Phone number is required and should be valid.",
+    },
+    {
+      name: "password",
+      label: "Password",
+      type: "password",
+      error: "Password is required.",
+    },
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,7 +38,8 @@ export class LoginComponent {
     });
   }
 
-  userLoginSubmit() {
+  // Function to handle form submission
+  userLoginSubmit(): boolean {
     if (this.loginForm.valid) {
       console.log("Form is valid");
       console.log("Phone:", this.loginForm.value.phone);
@@ -35,9 +48,11 @@ export class LoginComponent {
     } else {
       console.log("Form is invalid");
     }
+
     return false;
   }
 
+  // Function to check if an input field is invalid and touched
   isInvalidInput(name: string): boolean {
     return (
       (this.loginForm.get(name)?.invalid &&
