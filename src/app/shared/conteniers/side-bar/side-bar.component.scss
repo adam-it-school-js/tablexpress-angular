@@ -1,4 +1,4 @@
-@import "fonts";
+@import 'src/app/shared/styles/fonts';
 
 @mixin background {
   background-size: 1.5rem;
@@ -13,31 +13,31 @@
 
   &__dashboard {
     @include background;
-    background-image: url("/assets/images/icon-dashboard.svg");
+    background-image: url('/assets/images/icon-dashboard.svg');
   }
 
   &__charts {
     @include background;
-    background-image: url("/assets/images/icon-chart.svg");
+    background-image: url('/assets/images/icon-chart.svg');
   }
 
   &__history {
     @include background;
-    background-image: url("/assets/images/icon-history.svg");
+    background-image: url('/assets/images/icon-history.svg');
   }
 
   &__user {
     @include background;
-    background-image: url("/assets/images/icon-user.svg");
+    background-image: url('/assets/images/icon-user.svg');
   }
 
   &__settings {
     @include background;
-    background-image: url("/assets/images/icon-settings.svg");
+    background-image: url('/assets/images/icon-settings.svg');
   }
 
   &__logout {
     @include background;
-    background-image: url("/assets/images/icon-logout.svg");
+    background-image: url('/assets/images/icon-logout.svg');
   }
 }
