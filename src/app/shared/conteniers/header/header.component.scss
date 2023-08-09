@@ -1,0 +1,27 @@
+@import 'src/app/shared/styles/fonts';
+
+.header {
+  &__font {
+    font-family: 'Alegreya', sans-serif;
+    font-size: 2.5rem;
+  }
+
+  &-input {
+    font-family: 'SF Pro Display', sans-serif;
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    background-position: 0.5rem center;
+    background-image: url('/assets/images/icon-header-search.svg');
+  }
+
+  &-notifications {
+    position: absolute;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background-color: #1473e6;
+    top: 0.56rem;
+    right: 0.44rem;
+    border: 1px solid #f5f5f5;
+  }
+}

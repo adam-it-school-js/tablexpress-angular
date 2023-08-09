@@ -1,0 +1,28 @@
+<header class="px-3.5 w-full h-[6.125rem] flex justify-between items-center">
+  <h1 class="uppercase text-purple-900 font-bold header__font">RESERVATION SCHEDULE</h1>
+  <form (ngSubmit)="submit()" class="flex flex-row">
+    <div class="h-[2.5rem] flex flex-row pr-6 border-r-[0.0625rem] border-solid border-gray-100">
+      <input
+        class="w-[11.3125rem] h-full pl-12 border-[2px] border-solid border-gray-100 hover:border-blue-100 hover:border-[2px] mr-2 rounded-[2.5rem] text-sm header-input"
+        type="text"
+        formControlName="search"
+        placeholder="Search everything"
+      />
+      <a
+        class="w-[2.5rem] h-full rounded-full shadow-[1px_1px_10px_-5px_rgba(0,0,0,0.25)] relative inline-block hover:bg-blue-100 cursor-pointer"
+      >
+        <img
+          class="absolute left-[20%] top-[20%]"
+          src="assets/images/icon-header-notifications.svg"
+          alt="notifications"
+        />
+        <span class="header-notifications"></span>
+      </a>
+    </div>
+    <a
+      class="w-[2.5rem] h-[2.5rem] rounded-full overflow-hidden border-[1px] border-solid border-gray-100 ml-6"
+    >
+      <img class="cursor-pointer" src="assets/images/icon-header-user.png" alt="user" />
+    </a>
+  </form>
+</header>
