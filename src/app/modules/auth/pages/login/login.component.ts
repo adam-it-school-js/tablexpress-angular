@@ -8,8 +8,8 @@ import { CheckFormService } from "src/app/core/services/check-form.service";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent {
-  // Declare the loginForm FormGroup
-  loginForm!: FormGroup;
+  // Declare the form FormGroup
+  form!: FormGroup;
 
   // Define formFields array with input field details
   formFields = [
@@ -31,7 +31,7 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private checkFormService: CheckFormService
   ) {
-    this.loginForm = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       phone: ["", [Validators.required, CheckFormService.CheckPhoneNumber]],
       password: ["", Validators.required],
       rememberUser: [false],
@@ -40,11 +40,11 @@ export class LoginComponent {
 
   // Function to handle form submission
   userLoginSubmit(): boolean {
-    if (this.loginForm.valid) {
+    if (this.form.valid) {
       console.log("Form is valid");
-      console.log("Phone:", this.loginForm.value.phone);
-      console.log("Password:", this.loginForm.value.password);
-      console.log("Remember User:", this.loginForm.value.rememberUser);
+      console.log("Phone:", this.form.value.phone);
+      console.log("Password:", this.form.value.password);
+      console.log("Remember User:", this.form.value.rememberUser);
     } else {
       console.log("Form is invalid");
     }
@@ -55,8 +55,8 @@ export class LoginComponent {
   // Function to check if an input field is invalid and touched
   isInvalidInput(name: string): boolean {
     return (
-      (this.loginForm.get(name)?.invalid &&
-        this.loginForm.get(name)?.touched) ||
+      (this.form.get(name)?.invalid &&
+        this.form.get(name)?.touched) ||
       false
     );
   }

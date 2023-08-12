@@ -1,4 +1,4 @@
-<!-- Login Page Container -->
+Login Page Container
 <div id="login-page" class="w-screen h-screen flex items-center justify-center">
   <!-- Login Box -->
   <div class="login-box w-full sm:w-[508px] mx-2 px-1 sm:px-8 pb-1 sm:pb-10">
@@ -13,22 +13,14 @@
     <h1>Login</h1>
 
     <!-- Login Form -->
-    <form [formGroup]="loginForm" (submit)="userLoginSubmit()">
+    <form [formGroup]="form" (submit)="userLoginSubmit()">
       <!-- Dynamic Form Fields using ngFor -->
-      <ng-container *ngFor="let field of formFields">
+      <div *ngFor="let field of formFields">
         <div class="text-box w-full flex justify-between md:flex-row flex-col">
-          <!-- Label for Input -->
-          <label for="{{ field.name }}" [innerHTML]="field.label"></label>
-          <!-- Input Field with Validation and Error Display -->
-          <input
-            [class.validation-error]="isInvalidInput(field.name)"
-            formControlName="{{ field.name }}"
-            class="w-[342px] sm:w-full"
-            type="{{ field.type }}"
-            id="{{ field.name }}"
-            name="{{ field.name }}"
-          />
+          <app-input-text
+          ></app-input-text>
         </div>
+
         <!-- Error Message Display -->
         <div
           *ngIf="isInvalidInput(field.name)"
@@ -39,7 +31,7 @@
             {{ field.error }}
           </div>
         </div>
-      </ng-container>
+      </div>
 
       <!-- Remember Me and Forgot Password Section -->
       <div class="w-full flex justify-between items-center">

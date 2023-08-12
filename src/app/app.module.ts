@@ -5,11 +5,13 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-// import { LoginComponent } from "./modules/auth/pages/login/login.component";
+//import { InputTextComponent } from "./shared/components/input-text/input-text.component";
+
+
 
 @NgModule({
-  declarations: [AppComponent], //LoginComponent
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  declarations: [AppComponent, ], //InputTextComponent
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, ],
   providers: [],
   bootstrap: [AppComponent],
 })
