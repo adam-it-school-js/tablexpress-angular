@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 
 @Component({
@@ -8,24 +8,19 @@ import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  searchForm: FormGroup;
   private searchSubscription$: Subscription = new Subscription();
+  public searchForm = this.formBuilder.group({
+    search: [''],
+  });
 
-  constructor(private formBuilder: FormBuilder) {
-    this.searchForm = this.formBuilder.group({
-      search: [''],
-    });
-  }
-
-  get searchString(): FormControl {
-    return this.searchForm.get('search') as FormControl;
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.searchSubscription$.add(
-      this.searchForm.valueChanges
-        .pipe(distinctUntilChanged(), debounceTime(300))
-        .subscribe(() => console.log('Search string = ' + this.searchString.value)),
+      this.searchForm
+        .get('search')
+        ?.valueChanges.pipe(distinctUntilChanged(), debounceTime(300))
+        .subscribe((search) => console.log('Search string = ' + search)),
     );
   }
 
