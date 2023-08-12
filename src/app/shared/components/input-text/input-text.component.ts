@@ -9,24 +9,28 @@ import {
   Self,
 } from "@angular/core";
 import { ControlValueAccessor, NgControl } from "@angular/forms";
+import { InputErrorsComponent } from "../input-errors/input-errors.component";
 
 @Component({
   selector: "app-input-text",
   templateUrl: "./input-text.component.html",
   styleUrls: ["./input-text.component.scss"],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
 })
-export class InputTextComponent {
+export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Output() focus: EventEmitter<FocusEvent> = new EventEmitter();
   @Output() blur: EventEmitter<FocusEvent> = new EventEmitter();
+
   @Input() showPassword: boolean = false;
   @Input() title!: string;
   @Input() disabled: boolean = false;
-  @Input() placeholder!: string;
+  @Input() placeholder: string = "";
   @Input() type!: string;
   @Input() width!: string;
   @Input() height!: string;
   @Input() isBorder: boolean = false;
+
+  // @Input() errors!: any;
 
   private innerValue!: string;
 
@@ -42,35 +46,41 @@ export class InputTextComponent {
     );
   }
 
-  get value(): string{
+  get value(): string | null {
     return this.innerValue;
   }
 
-  set value(value: string){
-    this.writeValue(value)
-    this.onChange(value)
-    this.onTouch(value)
+  set value(value: string | null) {
+    this.writeValue(value);
+    this.onChange(value);
+    this.onTouch(value);
   }
 
-  public writeValue(value: string): void{
-    if(value !== this.innerValue) {
+  updateValue(event: Event): void {
+    if (event.target instanceof HTMLInputElement) {
+      this.value = event.target.value;
+    }
+  }
+
+  public writeValue(value: any): void {
+    if (value !== this.innerValue) {
       this.innerValue = value;
     }
   }
 
-  public registerOnChange(fn: any): void{
+  public registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  public registerOnTouched(fn: any): void{
+  public registerOnTouched(fn: any): void {
     this.onTouch = fn;
   }
 
-  public setDisabledState(isDisabled: boolean): void{
+  public setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
 
-  // For eslint
+  // Для eslint
   public onChange: any = () => {};
   public onTouch: any = () => {};
 }

@@ -1,19 +1,17 @@
-<div
-  class="text-box w-full flex justify-between md:flex-row flex-col"
-
->
-  <label>{{ title }}</label>
+<div class="text-box w-full flex justify-between md:flex-row flex-col">
+  <label [innerHTML]="title"></label>
   <input
     [type]="showPassword ? 'text' : type"
     [placeholder]="placeholder"
     [disabled]="disabled"
-
-
-
+    [value]="value"
+    (input)="updateValue($event)"
+    (focus)="focus.emit($event)"
+    (blur)="blur.emit($event)"
     class="w-[342px] sm:w-full"
   />
   <div *ngIf="hasError" class="error-message">
     <!-- Display error messages here -->
-    <ng-content></ng-content>
+    <app-input-errors ></app-input-errors>
   </div>
 </div>

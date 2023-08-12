@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { CheckFormService } from "src/app/core/services/check-form.service";
 
 @Component({
   selector: "app-login",
@@ -9,31 +8,12 @@ import { CheckFormService } from "src/app/core/services/check-form.service";
 })
 export class LoginComponent {
   // Declare the form FormGroup
-  form!: FormGroup;
+  public form!: FormGroup;
 
-  // Define formFields array with input field details
-  formFields = [
-    {
-      name: "phone",
-      label: "Phone&nbspnumber",
-      type: "text",
-      error: "Phone number is required and should be valid.",
-    },
-    {
-      name: "password",
-      label: "Password",
-      type: "password",
-      error: "Password is required.",
-    },
-  ];
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private checkFormService: CheckFormService
-  ) {
-    this.form = this.formBuilder.group({
-      phone: ["", [Validators.required, CheckFormService.CheckPhoneNumber]],
-      password: ["", Validators.required],
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      phone: [null, [Validators.required, Validators.maxLength(10)]],
+      password: [null, Validators.required, Validators.minLength(5)],
       rememberUser: [false],
     });
   }
@@ -41,23 +21,22 @@ export class LoginComponent {
   // Function to handle form submission
   userLoginSubmit(): boolean {
     if (this.form.valid) {
-      console.log("Form is valid");
-      console.log("Phone:", this.form.value.phone);
-      console.log("Password:", this.form.value.password);
-      console.log("Remember User:", this.form.value.rememberUser);
+      console.log("Form is valid 122121212");
     } else {
       console.log("Form is invalid");
     }
 
+    const fc = this.form.controls;
+    console.log("this.form.controls", fc);
+
+    console.log("Phone:", this.form.value.phone);
+    console.log("Password:", this.form.value.password);
+    console.log("Remember User:", this.form.value.rememberUser);
+
     return false;
   }
 
-  // Function to check if an input field is invalid and touched
-  isInvalidInput(name: string): boolean {
-    return (
-      (this.form.get(name)?.invalid &&
-        this.form.get(name)?.touched) ||
-      false
-    );
-  }
+  // onInputBlur(field: string) {
+  //   this.form.get(field)?.markAsTouched();
+  // }
 }
