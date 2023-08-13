@@ -5,16 +5,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './conteniers/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LayoutComponent } from './conteniers/layout/layout.component';
+import { MatIconModule } from '@angular/material/icon';
 
 // const components = []
 
-const contenders = [SideBarComponent, HeaderComponent];
+const contenders = [SideBarComponent, HeaderComponent, LayoutComponent];
 
 // const pipes = []
 
 //const directives = [];
 
-const modules = [CommonModule, BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule];
+const modules = [
+  CommonModule,
+  BrowserModule,
+  AppRoutingModule,
+  FormsModule,
+  ReactiveFormsModule,
+  MatIconModule,
+];
 
 @NgModule({
   declarations: [contenders],
