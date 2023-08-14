@@ -18,7 +18,7 @@ export class InputErrorsComponent {
     }
 
     const key = Object.keys(this.errors)[0];
-    
+
     const defaultMessage = "This field has an error.";
     const messages: { [key: string]: string } = {
       required: "This field is required.",
@@ -28,7 +28,6 @@ export class InputErrorsComponent {
       pattern: "The input does not match the expected pattern.",
     };
 
-    console.log("messages[key] :>> ", messages[key]);
     return messages[key] || defaultMessage;
   }
 }

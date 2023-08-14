@@ -5,6 +5,7 @@ import {
   ValidationErrors,
   Validators,
 } from "@angular/forms";
+import { phoneNumber } from "src/app/utils/validations/validations";
 
 @Component({
   selector: "app-login",
@@ -14,11 +15,19 @@ import {
 export class LoginComponent {
   // Declare the form FormGroup
   public form!: FormGroup;
-  errors!: ValidationErrors | null;
+  public errors!: ValidationErrors | null;
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      phone: [null, [Validators.required, Validators.maxLength(10)]],
+      phone: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(10),
+          phoneNumber,
+        ],
+      ],
       password: [null, [Validators.required, Validators.minLength(5)]],
       rememberUser: [false],
     });
@@ -32,21 +41,14 @@ export class LoginComponent {
   // Function to handle form submission
   userLoginSubmit(): boolean {
     if (this.form.valid) {
-      console.log("Form is valid 122121212");
+      console.log("Form is valid");
+      console.log("Phone:", this.form.value.phone);
+      console.log("Password:", this.form.value.password);
+      console.log("Remember User:", this.form.value.rememberUser);
     } else {
-      this.errors = this.form;
-
       console.log("Form is invalid", this.errors);
     }
 
-    const fc = this.form.controls;
-    console.log("this.form.controls", fc);
-
-    console.log("Phone:", this.form.value.phone);
-    console.log("Password:", this.form.value.password);
-    console.log("Remember User:", this.form.value.rememberUser);
-
     return false;
   }
-
 }

@@ -17,14 +17,14 @@
         formControlName="phone"
         title="Phone&nbsp;number"
         type="text"
-        errors="getErrorsAsAString(phone)"
+        errors="getErrorsAsAString('phone')"
       ></app-input-text>
 
       <app-input-text
         formControlName="password"
-        title="Password"  
+        title="Password"
         type="password"
-        errors="getErrorsAsAString(password)"
+        errors="getErrorsAsAString('password')"
       ></app-input-text>
 
       <!-- Remember Me and Forgot Password Section -->
@@ -33,15 +33,13 @@
           >_</span
         >
         <!-- Checkbox and Label -->
-        <div class="checkbox-box flex">
-          <input
-            formControlName="rememberUser"
-            type="checkbox"
-            name="rememberUser"
-            id="rememberUser"
-          />
-          <label class="ml-1" for="rememberUser">Remember me</label>
-        </div>
+        <app-input-checkbox
+          formControlName="rememberUser"
+          name="rememberUser"
+          label="Remember me"
+          [ngModel]="form.value.rememberUser"
+          (ngModelChange)="form.controls['rememberUser'].setValue($event)"
+        ></app-input-checkbox>
 
         <!-- Forgot Password Link -->
         <a href="">Forgot password?</a>

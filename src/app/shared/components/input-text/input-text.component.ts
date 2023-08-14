@@ -9,7 +9,6 @@ import {
   Self,
 } from "@angular/core";
 import { ControlValueAccessor, NgControl } from "@angular/forms";
-import { InputErrorsComponent } from "../input-errors/input-errors.component";
 
 @Component({
   selector: "app-input-text",
