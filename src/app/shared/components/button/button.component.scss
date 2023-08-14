@@ -1,0 +1,23 @@
+.primary-button {
+  border-radius: 50px;
+  background: var(--color-purple-500, #1473e6);
+  min-width: 123px;
+  height: 41px;
+  padding: 0px 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+
+  transition: 0.3s;
+  &:hover {
+    background: var(--color-purple-800, rgb(107 33 168));
+  }
+}

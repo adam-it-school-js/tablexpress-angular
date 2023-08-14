@@ -23,7 +23,6 @@ export class LoginComponent {
         null,
         [
           Validators.required,
-          Validators.minLength(10),
           Validators.maxLength(10),
           phoneNumber,
         ],
@@ -31,11 +30,6 @@ export class LoginComponent {
       password: [null, [Validators.required, Validators.minLength(5)]],
       rememberUser: [false],
     });
-  }
-
-  getErrorsAsAString(field: string): string {
-    const errors = this.form.get(field)?.errors;
-    return JSON.stringify(errors);
   }
 
   // Function to handle form submission

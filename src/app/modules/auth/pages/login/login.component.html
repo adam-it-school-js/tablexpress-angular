@@ -17,14 +17,14 @@
         formControlName="phone"
         title="Phone&nbsp;number"
         type="text"
-        errors="getErrorsAsAString('phone')"
+        (errors)="this.form.get('phone')?.errors"
       ></app-input-text>
 
       <app-input-text
         formControlName="password"
         title="Password"
         type="password"
-        errors="getErrorsAsAString('password')"
+        (errors)="this.form.get('password')?.errors"
       ></app-input-text>
 
       <!-- Remember Me and Forgot Password Section -->
@@ -42,13 +42,11 @@
         ></app-input-checkbox>
 
         <!-- Forgot Password Link -->
-        <a href="">Forgot password?</a>
+        <a href="" routerLink="">Forgot password?</a>
       </div>
 
       <!-- Submit Button -->
-      <div class="w-full flex justify-center my-5 sm:mt-10">
-        <button class="primory-button" type="submit">Login</button>
-      </div>
+      <app-button title="Login"></app-button>
     </form>
   </div>
 
