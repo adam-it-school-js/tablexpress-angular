@@ -1,5 +1,10 @@
 import { Component } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from "@angular/forms";
 
 @Component({
   selector: "app-login",
@@ -9,13 +14,19 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class LoginComponent {
   // Declare the form FormGroup
   public form!: FormGroup;
+  errors!: ValidationErrors | null;
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       phone: [null, [Validators.required, Validators.maxLength(10)]],
-      password: [null, Validators.required, Validators.minLength(5)],
+      password: [null, [Validators.required, Validators.minLength(5)]],
       rememberUser: [false],
     });
+  }
+
+  getErrorsAsAString(field: string): string {
+    const errors = this.form.get(field)?.errors;
+    return JSON.stringify(errors);
   }
 
   // Function to handle form submission
@@ -23,7 +34,9 @@ export class LoginComponent {
     if (this.form.valid) {
       console.log("Form is valid 122121212");
     } else {
-      console.log("Form is invalid");
+      this.errors = this.form;
+
+      console.log("Form is invalid", this.errors);
     }
 
     const fc = this.form.controls;
@@ -36,7 +49,4 @@ export class LoginComponent {
     return false;
   }
 
-  // onInputBlur(field: string) {
-  //   this.form.get(field)?.markAsTouched();
-  // }
 }

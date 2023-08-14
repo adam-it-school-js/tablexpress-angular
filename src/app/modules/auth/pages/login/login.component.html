@@ -17,13 +17,14 @@
         formControlName="phone"
         title="Phone&nbsp;number"
         type="text"
-        errors="form.controls.phone.errors"
+        errors="getErrorsAsAString(phone)"
       ></app-input-text>
 
       <app-input-text
         formControlName="password"
         title="Password"  
         type="password"
+        errors="getErrorsAsAString(password)"
       ></app-input-text>
 
       <!-- Remember Me and Forgot Password Section -->

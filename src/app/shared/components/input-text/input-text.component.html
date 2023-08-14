@@ -1,4 +1,4 @@
-<div class="text-box w-full flex justify-between md:flex-row flex-col">
+<div class="text-box w-full flex justify-between md:flex-row flex-col mb-4">
   <label [innerHTML]="title"></label>
   <input
     [type]="showPassword ? 'text' : type"
@@ -10,8 +10,8 @@
     (blur)="blur.emit($event)"
     class="w-[342px] sm:w-full"
   />
-  <div *ngIf="hasError" class="error-message">
-    <!-- Display error messages here -->
-    <app-input-errors ></app-input-errors>
-  </div>
+
+  <ng-container *ngIf="hasError">
+    <app-input-errors [errors]="errors" />
+  </ng-container>
 </div>

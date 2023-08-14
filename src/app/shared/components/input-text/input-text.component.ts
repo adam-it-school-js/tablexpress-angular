@@ -30,8 +30,6 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() height!: string;
   @Input() isBorder: boolean = false;
 
-  // @Input() errors!: any;
-
   private innerValue!: string;
 
   constructor(@Self() @Optional() public ngControl: NgControl) {
@@ -44,6 +42,10 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
     return !!(
       this.ngControl.control?.touched && this.ngControl.control?.invalid
     );
+  }
+
+  get errors(){
+    return this.ngControl.control?.errors || null;
   }
 
   get value(): string | null {
