@@ -1,17 +1,21 @@
-<div class="text-box w-full flex justify-between md:flex-row flex-col mb-4">
-  <label [innerHTML]="title"></label>
-  <input
-    [type]="showPassword ? 'text' : type"
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [value]="value"
-    (input)="updateValue($event)"
-    (focus)="focus.emit($event)"
-    (blur)="blur.emit($event)"
-    class="w-[342px] sm:w-full"
-  />
+<div class="w-full flex flex-col mb-4">
+  <div class="flex w-full justify-between md:flex-row flex-col">
+    <label [innerHTML]="title"></label>
+    <input
+      [type]="showPassword ? 'text' : type"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [value]="value"
+      (input)="updateValue($event)"
+      (focus)="focus.emit($event)"
+      (blur)="blur.emit($event)"
+      class="w-[342px] sm:w-full"
+    />
+  </div>
 
-  <ng-container *ngIf="hasError">
-    <app-input-errors [errors]="errors" />
-  </ng-container>
+  <div class="flex w-full">
+    <ng-container *ngIf="hasError">
+      <app-input-errors [errors]="errors" />
+    </ng-container>
+  </div>
 </div>

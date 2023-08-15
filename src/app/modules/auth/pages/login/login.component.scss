@@ -3,12 +3,13 @@
   background: url("/assets/images/login-bg.png") center/cover no-repeat;
 
   .login-box {
-    min-height: 600px;
+    min-height: 560px;
     border-radius: 50px;
     background: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 10; // to hide copyright 
 
     img {
       width: 100%;
@@ -17,7 +18,6 @@
     h1 {
       color: var(--color-purple-900, #0a376e);
       font: 700 40px Alegreya;
-      margin: 42px 0;
       text-transform: uppercase;
     }
 
@@ -35,7 +35,6 @@
     color: var(--color-purple-900, #0a376e);
     text-align: center;
     font-family: Alegreya;
-    font-size: 25px;
     font-weight: 700;
   }
 }

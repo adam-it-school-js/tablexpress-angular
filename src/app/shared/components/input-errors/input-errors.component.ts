@@ -12,7 +12,7 @@ export class InputErrorsComponent {
   private maxLength: number = 10;
 
   get errorMessage(): string {
-    console.log("this.errors :>> ", this.errors);
+    // console.log("this.errors :>> ", this.errors);
     if (!this.errors) {
       return "";
     }

@@ -1,6 +1,6 @@
 <div id="login-page" class="w-screen h-screen flex items-center justify-center">
   <!-- Login Box -->
-  <div class="login-box w-full sm:w-[508px] mx-2 px-1 sm:px-8 pb-1 sm:pb-10">
+  <div class="login-box w-full sm:w-[508px] mx-2 px-1 sm:px-8 pb-1 sm:pb-5">
     <!-- Logo -->
     <img
       class="h-auto md:h-[211px]"
@@ -9,7 +9,7 @@
     />
 
     <!-- Title -->
-    <h1>Login</h1>
+    <h1 class="my-4 sm:my-10">Login</h1>
 
     <!-- Login Form -->
     <form [formGroup]="form" (submit)="userLoginSubmit()">
@@ -29,7 +29,7 @@
 
       <!-- Remember Me and Forgot Password Section -->
       <div class="w-full flex justify-between items-center">
-        <span class="text-transparent pointer-events-none hidden md:block"
+        <span class="text-transparent pr-4 pointer-events-none hidden md:block"
           >_</span
         >
         <!-- Checkbox and Label -->
@@ -50,7 +50,7 @@
     </form>
   </div>
 
-  <div class="copyright">
+  <div class="copyright text-sm md:text-2xl">
     Copyright © 2021 AN BBQ Themes
   </div>
 </div>
