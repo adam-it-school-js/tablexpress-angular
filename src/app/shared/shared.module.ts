@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SideBarComponent } from './conteniers/side-bar/side-bar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
@@ -10,20 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 
 // const components = []
 
-const contenders = [SideBarComponent, HeaderComponent, LayoutComponent];
+const contenders = [LayoutComponent, SideBarComponent, HeaderComponent];
 
 // const pipes = []
 
 //const directives = [];
 
-const modules = [
-  CommonModule,
-  BrowserModule,
-  AppRoutingModule,
-  FormsModule,
-  ReactiveFormsModule,
-  MatIconModule,
-];
+const modules = [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, MatIconModule];
 
 @NgModule({
   declarations: [contenders],
