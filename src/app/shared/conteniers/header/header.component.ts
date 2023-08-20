@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 
@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(private formBuilder: FormBuilder) {}
 
+  @Output() notificationEmit = new EventEmitter<MouseEvent>();
+
   ngOnInit(): void {
     this.searchSubscription$.add(
       this.searchForm
@@ -26,5 +28,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.searchSubscription$.unsubscribe();
+  }
+
+  notificationClicked(event: MouseEvent) {
+    this.notificationEmit.emit(event);
   }
 }

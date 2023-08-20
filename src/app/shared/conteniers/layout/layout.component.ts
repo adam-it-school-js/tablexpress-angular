@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  isNotificationsShowing = false;
+
+  toggleNotifications() {
+    this.isNotificationsShowing = !this.isNotificationsShowing;
+  }
+}

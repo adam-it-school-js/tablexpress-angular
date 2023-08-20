@@ -1,0 +1,27 @@
+@import 'src/app/moduls/admin/styles/fonts';
+
+@mixin text {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.notification {
+  &__font {
+    @include text;
+  }
+
+  &__font-700 {
+    @include text;
+    font-weight: 700;
+  }
+
+  &__font-date {
+    @include text;
+    font-size: 0.875rem;
+    line-height: 168.688%;
+  }
+}

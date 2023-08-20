@@ -1,0 +1,34 @@
+@import 'src/app/moduls/admin/styles/fonts';
+
+.soc-advistories {
+  &__font {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    color: #20315c;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 168.688%;
+  }
+
+  &__scroll::-webkit-scrollbar {
+    width: 1rem;
+    height: 8rem;
+    background-color: #989898;
+    border-radius: 0.5rem;
+  }
+
+  &__scroll::-webkit-scrollbar-thumb {
+    background-color: #20315c;
+    border-radius: 0.5rem;
+  }
+}
+
+.soc-advistories::before {
+  content: '';
+  position: absolute;
+  top: -14%;
+  right: 20%;
+  border: 1.29906rem solid transparent;
+  border-top-color: #dae9fc;
+  transform: rotate(180deg);
+}
