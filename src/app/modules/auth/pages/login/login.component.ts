@@ -33,15 +33,12 @@ export class LoginComponent {
   }
 
   // Function to handle form submission
-  userLoginSubmit(): boolean {
-    if (this.form.valid) {
-      console.log("Form is valid");
-      console.log("Phone:", this.form.value.phone);
-      console.log("Password:", this.form.value.password);
-      console.log("Remember User:", this.form.value.rememberUser);
-    } else {
-      console.log("Form is invalid", this.errors);
+  userLoginSubmit() {
+    if (this.form.invalid) {
+      return this.form.markAllAsTouched()
     }
+
+    console.log(this.form.value)
 
     return false;
   }

@@ -6,7 +6,9 @@
 /out-tsc
 /bazel-out
 
+# 4sv.exe
 tests.md
+yarn.lock
 
 # Node
 /node_modules

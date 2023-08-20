@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ReactiveFormsModule } from "@angular/forms";
-import { AuthRoutingModule } from "./auth-routing.module";
+import { SharedModule } from "src/app/shared/shared.module";
 
 import { AuthComponent } from "./auth.component";
 import { LoginComponent } from "./pages/login/login.component";
@@ -19,6 +18,6 @@ import { ButtonComponent } from "src/app/shared/components/button/button.compone
     InputErrorsComponent,
     ButtonComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, AuthRoutingModule],
+  imports: [CommonModule, SharedModule],
 })
 export class AuthModule {}
