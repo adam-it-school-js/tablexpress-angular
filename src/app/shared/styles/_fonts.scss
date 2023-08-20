@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Alegreya';
+  src:
+    url('../../../assets/fonts/Alegreya-Bold.woff') format('woff'),
+    url('../../../assets/fonts/Alegreya-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alegreya';
+  src:
+    url('../../../assets/fonts/Alegreya-Regular.woff') format('woff'),
+    url('../../../assets/fonts/Alegreya-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src:
+    url('../../../assets/fonts/SFProDisplay-Regular.woff') format('woff'),
+    url('../../../assets/fonts/SFProDisplay-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
