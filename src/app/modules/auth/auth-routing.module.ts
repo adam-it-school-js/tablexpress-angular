@@ -1,18 +1,13 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from "./pages/login/login.component";
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
-    // it did`nt works
-    path: "",
-    children: [{ path: "login", component: LoginComponent }],
+    path: '',
+    children: [{ path: 'login', component: LoginComponent }],
   },
-  {
-    // it works
-    path: "aut/login", component: LoginComponent
-  }
 ];
 
 @NgModule({
