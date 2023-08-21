@@ -5,9 +5,14 @@ import { LoginComponent } from "./pages/login/login.component";
 
 const routes: Routes = [
   {
+    // it did`nt works
     path: "",
     children: [{ path: "login", component: LoginComponent }],
   },
+  {
+    // it works
+    path: "aut/login", component: LoginComponent
+  }
 ];
 
 @NgModule({
