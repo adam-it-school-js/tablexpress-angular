@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { SharedModule } from "src/app/shared/shared.module";
 
 import { AuthComponent } from "./auth.component";
@@ -18,6 +17,6 @@ import { ButtonComponent } from "src/app/shared/components/button/button.compone
     InputErrorsComponent,
     ButtonComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [SharedModule],
 })
 export class AuthModule {}
