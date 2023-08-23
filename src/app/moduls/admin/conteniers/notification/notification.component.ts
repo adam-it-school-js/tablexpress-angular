@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Notification } from '../../types';
+import { Notification, NotificationStatus } from '../../types';
 
 @Component({
   selector: 'app-notification',
@@ -21,15 +21,15 @@ export class NotificationComponent implements OnInit {
       return;
     }
     switch (status) {
-      case 'deposited':
+      case NotificationStatus.DEPOSITED:
         this.notificationMessage = 'has been deposited successfully.';
         this.iconUrl = '/assets/images/icon-notification-success.svg';
         break;
-      case 'cancelled':
+      case NotificationStatus.CANCELLED:
         this.notificationMessage = 'has been cancelled.';
         this.iconUrl = '/assets/images/icon-notification-error.svg';
         break;
-      case 'booked':
+      case NotificationStatus.BOOKED:
         this.notificationMessage = 'has been booked. Undeposited.';
         this.iconUrl = '/assets/images/icon-notification-info.svg';
         break;
