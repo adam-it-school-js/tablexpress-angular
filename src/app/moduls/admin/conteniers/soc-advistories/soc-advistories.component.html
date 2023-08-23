@@ -1,0 +1,13 @@
+<div
+  class="soc-advistories w-[31.42656rem] h-[16.5rem] border-[3px] border-solid border-[#DAE9FC] bg-[#DAE9FC] rounded-[3.125rem] absolute top-[5.31rem] right-0 pr-[0.88rem] pl-[1.83rem] py-[0.56rem]"
+>
+  <span class="soc-advistories__font">Today {{ date }}</span>
+  <div class="w-full h-[82%] relative overflow-auto soc-advistories__scroll">
+    <div class="grid grid-cols-1 gap-[0.77rem]">
+      <app-notification
+        *ngFor="let notification of notifications"
+        [notification]="notification"
+      ></app-notification>
+    </div>
+  </div>
+</div>

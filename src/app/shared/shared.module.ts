@@ -6,6 +6,7 @@ import { HeaderComponent } from './conteniers/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './conteniers/layout/layout.component';
 import { MatIconModule } from '@angular/material/icon';
+import { AdminModule } from '../moduls/admin/admin.module';
 
 // const components = []
 
@@ -15,7 +16,14 @@ const contenders = [LayoutComponent, SideBarComponent, HeaderComponent];
 
 //const directives = [];
 
-const modules = [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, MatIconModule];
+const modules = [
+  BrowserModule,
+  AppRoutingModule,
+  FormsModule,
+  ReactiveFormsModule,
+  MatIconModule,
+  AdminModule,
+];
 
 @NgModule({
   declarations: [contenders],

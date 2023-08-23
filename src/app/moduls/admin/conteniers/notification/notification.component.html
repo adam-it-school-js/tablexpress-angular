@@ -1,0 +1,35 @@
+<div
+  class="h-[4.933rem] bg-[#20315C] rounded-[1.5rem] mr-[0.46rem] pl-[1rem] pt-[1.23rem] pr-[0.55rem]"
+>
+  <div *ngIf="notification; else loading" class="flex flex-row items-start">
+    <div class="pt-[0.3rem]">
+      <img
+        class="w-[0.8505rem] h-[0.8505rem] mr-[0.54rem]"
+        [ngSrc]="iconUrl"
+        height="17"
+        width="17"
+        alt="icon"
+      />
+    </div>
+    <div class="w-full mr-[0.5rem]">
+      <div>
+        <span class="notification__font">Reservation </span>
+        <span class="notification__font-700">#{{ notification.id }} </span>
+        <span class="notification__font">{{ notificationMessage }}</span>
+      </div>
+      <span class="notification__font-date">Today {{ notification.time }}PM</span>
+    </div>
+    <button (click)="closeNotification()" class="w-[0.51031rem] h-[0.51031rem] pt-[0.3rem]">
+      <img
+        ngSrc="/assets/images/icon-notification-close.svg"
+        height="11"
+        width="11"
+        alt="delete button"
+      />
+    </button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <span class="notification__font">Loading...</span>
+</ng-template>
