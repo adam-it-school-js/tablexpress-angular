@@ -1,0 +1,62 @@
+<div class="flex justify-center items-center h-full">
+  <div
+    id="login-page"
+    class="w-screen h-screen flex items-center justify-center"
+  >
+    <!-- Login Box -->
+    <div class="login-box w-full sm:w-[508px] mx-2 px-1 sm:px-8 pb-1 sm:pb-5">
+      <!-- Logo -->
+      <img
+        class="h-auto md:h-[211px]"
+        src="assets/images/login-logo.png"
+        alt="BBQ logo"
+      />
+
+      <!-- Title -->
+      <h1 class="my-4 sm:my-10">Login</h1>
+
+      <!-- Login Form -->
+      <form [formGroup]="form" (submit)="userLoginSubmit()">
+        <app-input-text
+          formControlName="phone"
+          title="Phone&nbsp;number"
+          type="text"
+          (errors)="this.form.get('phone')?.errors"
+        ></app-input-text>
+
+        <app-input-text
+          formControlName="password"
+          title="Password"
+          type="password"
+          (errors)="this.form.get('password')?.errors"
+        ></app-input-text>
+
+        <!-- Remember Me and Forgot Password Section -->
+        <div class="w-full flex justify-between items-center">
+          <span
+            class="text-transparent pr-4 pointer-events-none hidden md:block"
+            >_</span
+          >
+          <!-- Checkbox and Label -->
+          <app-input-checkbox
+            formControlName="rememberUser"
+            name="rememberUser"
+            label="Remember me"
+            [ngModel]="form.value.rememberUser"
+            (ngModelChange)="form.controls['rememberUser'].setValue($event)"
+          ></app-input-checkbox>
+
+          <!-- Forgot Password Link -->
+          <a href="" routerLink="">Forgot password?</a>
+        </div>
+
+        <!-- Submit Button -->
+        <app-button title="Login"></app-button>
+      </form>
+    </div>
+
+    <div class="copyright text-sm md:text-2xl">
+      Copyright © 2021 AN BBQ Themes
+    </div>
+  </div>
+</div>

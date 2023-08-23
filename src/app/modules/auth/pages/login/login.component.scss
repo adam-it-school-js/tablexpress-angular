@@ -1,0 +1,40 @@
+#login-page {
+  background: #8b8a8c;
+  background: url("/assets/images/login-bg.png") center/cover no-repeat;
+
+  .login-box {
+    min-height: 560px;
+    border-radius: 50px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10; // to hide copyright 
+
+    img {
+      width: 100%;
+    }
+
+    h1 {
+      color: var(--color-purple-900, #0a376e);
+      font: 700 40px Alegreya;
+      text-transform: uppercase;
+    }
+
+    a {
+      color: #333;
+      font: 500 15px Montserrat;
+      text-decoration-line: underline;
+    }
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 26px;
+
+    color: var(--color-purple-900, #0a376e);
+    text-align: center;
+    font-family: Alegreya;
+    font-weight: 700;
+  }
+}
