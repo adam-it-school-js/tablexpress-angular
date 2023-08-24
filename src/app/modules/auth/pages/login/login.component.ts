@@ -6,6 +6,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { phoneNumber } from "src/app/utils/validations/validations";
+import { LoginService } from "./login.service";
 
 @Component({
   selector: "app-login",
@@ -17,15 +18,11 @@ export class LoginComponent {
   public form!: FormGroup;
   public errors!: ValidationErrors | null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private loginService: LoginService) {
     this.form = this.fb.group({
       phone: [
         null,
-        [
-          Validators.required,
-          Validators.maxLength(10),
-          phoneNumber,
-        ],
+        [Validators.required, Validators.maxLength(10), phoneNumber],
       ],
       password: [null, [Validators.required, Validators.minLength(5)]],
       rememberUser: [false],
@@ -35,11 +32,19 @@ export class LoginComponent {
   // Function to handle form submission
   userLoginSubmit() {
     if (this.form.invalid) {
-      return this.form.markAllAsTouched()
+      return this.form.markAllAsTouched();
     }
+    this.form.disable();
 
-    console.log(this.form.value)
+    
 
-    return false;
+    console.log(this.form.value);
+
+    this.loginService.login(this.form.value).subscribe(
+      ()=>{
+        console.log('loginned :>> ');
+      },
+      error => console.warn('error login', error)
+    )
   }
 }

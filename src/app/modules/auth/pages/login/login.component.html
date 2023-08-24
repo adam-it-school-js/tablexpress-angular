@@ -51,7 +51,10 @@
         </div>
 
         <!-- Submit Button -->
-        <app-button title="Login"></app-button>
+        <app-button
+          [disabled]="form.invalid || form.disabled"
+          title="Login"
+        ></app-button>
       </form>
     </div>
 
