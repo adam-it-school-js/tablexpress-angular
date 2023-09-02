@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, of } from "rxjs";
+import { Observable, of, tap } from "rxjs";
 
 import { StorageService } from "src/app/core/services/storage.service";
 import { IOutputLogin } from 'src/app/stores/app/types';
@@ -15,7 +15,12 @@ export class LoginService {
   ) {}
 
   login(user: IOutputLogin): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>("/api/auth/login", user);
+    return this.http.post<{ token: string }>("/api/auth/login", user)
+      .pipe(tap(
+        ({token}) => {
+          this.storageService.saveToken(token)
+        }
+      ))
   }
 }
 

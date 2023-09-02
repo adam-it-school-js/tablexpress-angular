@@ -10,8 +10,6 @@ import {
 
 import { phoneNumber } from "src/app/utils/validations/validations";
 import { LoginService } from "./login.service";
-import { StorageService } from "src/app/core/services/storage.service";
-
 
 @Component({
   selector: "app-login",
@@ -29,8 +27,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private loginService: LoginService,
     private router: Router,
     private route: ActivatedRoute,
-    private storage: StorageService,
-
   ) {}
 
   ngOnInit(): void {
@@ -63,10 +59,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.loginSubscription = this.loginService.login(this.form.value).subscribe(
       (data) => {
-        console.log("loginned :>> ", data.token);
-
-        this.storage.saveToken(data.token)
-
         this.router.navigate(["/"]);
       },
       (error) => {
